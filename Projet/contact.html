@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+ 
+ <style>
+  body{
+
+  background: #f70934; 
+  background: -webkit-linear-gradient(to right, #d80027, #f70934); 
+  background: linear-gradient(to right, #d80027, #f70934); 
+}
+.container{
+  padding:100px;
+}
+#contact{
+  max-width:400px;
+  padding:20px;
+  background-color:#ffffff;
+  margin:auto;
+}
+ul{
+  list-style:none;
+  padding:0;
+  margin:0
+}
+input{
+  border:1px solid #f7f7f7;
+  border-radius:8px;
+  padding:10px;
+  width:100%;
+}
+textarea{
+  border:1px solid #f7f7f7;
+  width:100%;
+  ouline:none
+}
+.hidden{
+  display:none;
+  visibility:hidden;
+}
+.error {
+  color: #ff0000;
+}
+.submit{
+  margin-top:30px;
+  width:150px;
+  margin:30px 0;
+  background-color:black;
+  color:white;
+  background: #000000; 
+  background: -webkit-linear-gradient(to right, #d80027, #000000);  
+  background: linear-gradient(to right, #d80027, #000000); 
+}
+.mandatory{
+    font-size:1.3em;
+    margin: 50px 0;
+    font-weight: normal;
+  text-align:center;
+}
+</style>
+</head>
+<body>
+	
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<a class="navbar-brand" href="#"><img src="image/icon/tunisia.png" width="50%"></a>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="acceuil.html">Acceuil</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="demographie.html">Démographie</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="Historique.html">Monuments</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="fete.html">Fêtes officielles</a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" href="#">Contact</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+
+    <form id="contact" name="contact">
+      <ul>
+        <li>
+          <label></label>
+          <input placeholder="Nom" type="text" id="name" name="nom" required/>
+        </li>                    
+        <li>
+          <label></label>
+          <input placeholder="Email" type="email" name="email" required/>
+        </li>
+        <li>
+          <label></label>
+          <input placeholder="Telephone" type="number" name="tel" required/>
+        </li>
+        <li>
+        <li>
+          <label></label>
+          <textarea id="message" rows="5" cols="45" name="message" placeholder="Votre message" required></textarea>
+        </li>
+      </ul>
+      <input class="submit" type="submit" value="Submit">
+    </form>
+  
+  <script>
+$(function() {
+  $("form[name='contact']").validate({
+    rules: {
+      nom: "required",
+      tel:{
+       required: true,
+      number: true
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      message:"required"
+    },
+ 
+    messages: {
+      nom: "Veuillez insérer votre nom",
+      tel: 'Veuillez insérer un numéro de téléphone',
+      email: "Veuillez insérer une adresse mail valide",
+      message:"Veuillez remplir ce champ"
+    },
+  
+    submitHandler: function(form) {
+      form.submit();
+    }
+  });
+});
+ </script>
+</body>
+</html>
